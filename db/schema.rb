@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701212913) do
+ActiveRecord::Schema.define(:version => 20130701221334) do
 
   create_table "photo_taggings", :force => true do |t|
     t.integer  "photo_id"
@@ -26,9 +26,18 @@ ActiveRecord::Schema.define(:version => 20130701212913) do
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "user_id"
+    t.integer  "set_id"
   end
+
+  add_index "photos", ["set_id"], :name => "index_photos_on_set_id"
+  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
 
   create_table "tags", :force => true do |t|
     t.string   "title"

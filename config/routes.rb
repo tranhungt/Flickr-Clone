@@ -3,4 +3,5 @@ Flicker::Application.routes.draw do
   root :to => "Root#root" 
   resource :account
   get '/photos/upload', to: 'Photos#upload' 
+  resources :photos
 end
