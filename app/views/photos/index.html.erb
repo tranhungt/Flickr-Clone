@@ -1,0 +1,11 @@
+<%#= image_tag @user.avatar.url %>
+<%#= image_tag @user.avatar.url(:medium) %>
+<%#= image_tag @user.avatar.url(:thumb) %>
+<%= link_to "Upload Photos", photos_upload_path %>
+<ul>
+<% @photos.each do |photo| %>
+  <li class="photos">
+    <%= image_tag photo.image.url(:medium) %>
+  </li>
+  <% end %>
+</ul>

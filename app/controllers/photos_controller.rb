@@ -3,7 +3,8 @@ class PhotosController < ApplicationController
     @photos = Photo.new
   end
   def create
-    @photo = Photo.create!(params[:photo])
+    @photo = Photo.new(params[:photo])
+    @photo.save
     redirect_to photos_path
   end
 

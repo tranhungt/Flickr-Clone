@@ -1,4 +1,6 @@
 <%= form_for @photos, :url => photos_path, :html => { :multipart => true } do |form| %>
   <%= form.file_field :image %>
+  <label for="tag">Add Tag</label>
+  <input type="text" name="photo[tags_attributes][0][title]" id="tag">  
   <%= form.submit value="Upload Photo" %>
 <% end %>
