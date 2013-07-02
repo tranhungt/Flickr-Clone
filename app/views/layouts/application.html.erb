@@ -7,20 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= nav_bar do %>
-    <%= menu_item "Home", root_path %>
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+                      <a class="brand" href="<%= root_path %>"><img src='assets/icon.jpeg'></a>
+          <div class="nav-collapse">
+            <ul class="nav">
 
-    <%= drop_down "You" do %>
-        <%= menu_item "Photostream", photostreams_path %>
-        <%= menu_item "Sets", root_path %>
-        <%= drop_down_divider %>
-        <%= menu_item "Favorite", root_path %>
-    <% end %>
+              <%= drop_down "You" do %>
+                <%= menu_item "Photostream", photostreams_path %>
+                <%= menu_item "Photo Sets", photo_sets_path %>
+                <%#= drop_down_divider %>
+                <%= menu_item "Discount Items", root_path %>
+              <% end %>
 
-    <%= menu_item "About Us", root_path %>
-    <%= menu_item "Contact", root_path %>
-<% end %>
 
+
+              <li><%= link_to "Browse Products", root_path %></li>
+              <li><%= link_to "List your Item", photostreams_path %></li>
+              <li><%= link_to "Shopping Cart", photostreams_path %></li>
+              <li><%= link_to "profile", photostreams_path %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <!-- Devise notices -->
 <p class="notice"><%= notice %></p>
