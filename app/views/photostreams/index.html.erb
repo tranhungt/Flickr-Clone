@@ -4,8 +4,8 @@
   <li class="photos">
 
     <a href="/photos/<%= photo.id %>">
-      <%= image_tag photo.image.url(:medium) %>
-    </a>
+      <%= render partial: './display_photo', locals: {photo: photo} %>
+     </a>
   </li>
   <% end %>
 </ul>
