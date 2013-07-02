@@ -5,5 +5,7 @@ class Photo < ActiveRecord::Base
   has_many :tags, through: :photo_taggings, source: :tag
   belongs_to :photostream
   has_one :user, through: :photostream
+  has_many :favorites
+  has_many :favorited_users, through: :favorites, source: :user
   accepts_nested_attributes_for :tags
 end

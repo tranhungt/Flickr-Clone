@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   has_one :photostream
   has_many :photos, through: :photostreams
+  has_many :favorites
+  has_many :favorite_photos, through: :favorites, 
+  source: :photo
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
