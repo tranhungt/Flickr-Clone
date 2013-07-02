@@ -5,7 +5,10 @@
 <ul>
 <% @photos.each do |photo| %>
   <li class="photos">
-    <%= image_tag photo.image.url(:medium) %>
+
+    <a href="/photos/<%= photo.id %>">
+      <%= image_tag photo.image.url(:medium) %>
+    </a>
   </li>
   <% end %>
 </ul>

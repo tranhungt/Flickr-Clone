@@ -3,12 +3,18 @@ class PhotosController < ApplicationController
     @photos = Photo.new
   end
   def create
-    @photo = Photo.new(params[:photo])
+    photostream = current_user.photostream
+    @photo = photostream.photos.build(params[:photo])
     @photo.save
-    redirect_to photos_path
+    redirect_to photostreams_path
   end
 
   def index
     @photos = Photo.all
+  end
+
+  def show
+    @photo = Photo.find(params[:id])
+    @tags = @photo.tags
   end
 end

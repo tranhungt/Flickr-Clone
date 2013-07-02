@@ -21,8 +21,21 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+#addons
 gem 'devise'
 gem 'paperclip', '~> 3.0'
+
+
+#bootstraps
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+
+#developments
+gem 'annotate'
+gem 'better_errors'
+gem 'binding_of_caller'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
