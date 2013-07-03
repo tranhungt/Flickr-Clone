@@ -6,4 +6,5 @@ Flicker::Application.routes.draw do
   resources :photostreams, :only => [:index, :show]
   resources :photos, :only => [:create, :show]
   resources :photo_sets
+  resources :favorites
 end

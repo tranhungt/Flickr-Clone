@@ -25,7 +25,7 @@ gem 'jquery-rails'
 #addons
 gem 'devise'
 gem 'paperclip', '~> 3.0'
-
+gem 'backbone-on-rails'
 
 #bootstraps
 gem 'therubyracer'

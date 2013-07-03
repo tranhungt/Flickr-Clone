@@ -3,6 +3,6 @@ class PhotostreamsController < ApplicationController
     @photos = Photo.all
   end
   def show
-    @photos = Photostream.find(params[:id]).photos
+    @photos = Photostream.find(params[:id]).photos.includes(:favorited_users)
   end
 end

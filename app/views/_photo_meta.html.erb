@@ -2,5 +2,25 @@
 <a href="photostream/<%= photo.user.photostream.id%>">
   <%= photo.user %>
 </a>
-<a href="#" id="favorite_click">Click to Favorite</a>
+<%= form_for :favorite, :url => favorites_path, :remote => true, :id => "favorite_form" do |f| %>
+  <%= f.hidden_field :user_id, :value => photo.user.id %>
+  <%= f.hidden_field :photo_id, :value => photo.id %>
+  <%= f.submit :value => "Favorite", :id => "favorite_submit" %>
+<% end %>
 </div>
+
+
+<script>
+$('#favorite_form').find("favorite_submit").click(function(event){
+  event.preventDefault();
+  var form_data = $(this.form).serialize();
+  $.ajax({
+    url: '/favorites',
+    type: 'POST',
+    data: formData,
+    success: function(){
+
+    }
+  })
+});
+</script>
