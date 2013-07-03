@@ -31,6 +31,10 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    aws-sdk (1.11.3)
+      json (~> 1.4)
+      nokogiri (< 1.6.0)
+      uuidtools (~> 2.1)
     backbone-on-rails (1.0.0.0)
       eco
       ejs
@@ -89,6 +93,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.7)
+    nokogiri (1.5.10)
     orm_adapter (0.4.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -151,6 +156,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -159,6 +165,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk
   backbone-on-rails
   better_errors
   binding_of_caller

@@ -25,6 +25,7 @@ gem 'jquery-rails'
 #addons
 gem 'devise'
 gem 'paperclip', '~> 3.0'
+gem 'aws-sdk'
 gem 'backbone-on-rails'
 
 #bootstraps

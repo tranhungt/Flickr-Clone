@@ -7,4 +7,5 @@ Flicker::Application.routes.draw do
   resources :photos, :only => [:create, :show]
   resources :photo_sets
   resources :favorites
+  post '/delete_favorite', to: 'Favorites#destroy'
 end

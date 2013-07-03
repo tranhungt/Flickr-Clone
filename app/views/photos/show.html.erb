@@ -10,4 +10,6 @@
     </li>
   <% end %>
 </ul>
-<%= image_tag @photo.image.url(:medium) %>
+<%= render :partial => './display_photo', :locals => {photo: @photo} %>
+
+
