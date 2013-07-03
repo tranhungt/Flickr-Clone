@@ -1,11 +1,1 @@
-<%= link_to "upload photos", photos_upload_path %>
-<ul>
-<% @photos.each do |photo| %>
-  <li class="photos">
-
-    <a href="/photos/<%= photo.id %>">
-      <%= image_tag photo.image.url(:medium) %>
-    </a>
-  </li>
-  <% end %>
-</ul>
+<%= render :partial => './display_photos', :locals => {photos: @photos} %>

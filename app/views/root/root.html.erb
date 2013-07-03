@@ -1,2 +1,1 @@
-<%= link_to "Upload Photos", photos_upload_url %>
-<%= link_to "Your Photos", photostream_path(@current_user_photostream) %>
+<%= render :partial => './display_photos', :locals => {photos: @photos} %>

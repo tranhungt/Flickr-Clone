@@ -20,7 +20,7 @@
             <ul class="nav">
               <li>
                 <%= drop_down "You" do %>
-                  <%= menu_item "Photostream", photostreams_path %>
+                  <%= menu_item "Photostream", photostream_path(current_user.id) %>
                   <%= menu_item "Photo Sets", photo_sets_path %>
                   <%#= drop_down_divider %>
                   <%= menu_item "Favorites", favorites_url %>
