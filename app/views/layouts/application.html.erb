@@ -18,24 +18,39 @@
                       <a class="brand" href="<%= root_path %>"><img src='assets/icon.jpeg'></a>
           <div class="nav-collapse">
             <ul class="nav">
+              <li>
+                <%= drop_down "You" do %>
+                  <%= menu_item "Photostream", photostreams_path %>
+                  <%= menu_item "Photo Sets", photo_sets_path %>
+                  <%#= drop_down_divider %>
+                  <%= menu_item "Favorites", favorites_url %>
+                <% end %>
+               </li>
 
-              <%= drop_down "You" do %>
-                <%= menu_item "Photostream", photostreams_path %>
-                <%= menu_item "Photo Sets", photo_sets_path %>
-                <%#= drop_down_divider %>
-                <%= menu_item "Favorites", favorites_url %>
-              <% end %>
 
+              <li><%= drop_down "Contacts" do %>
+                  <%= menu_item "Recent Photos", photostreams_path %>
+                  <%= menu_item "Contact List", photo_sets_path %>
+                  <%#= drop_down_divider %>
+                  <%= menu_item "Photo of Contacts", favorites_url %>
+                  <%= menu_item "Add Contacts", favorites_url %>
+                <% end %>
+              </li>
 
+              <li><%= drop_down "Communities" do %>
+                  <%= menu_item "Groups List", photostreams_path %>
+                  <%= menu_item "Recent Discussions", photo_sets_path %>
+                  <%#= drop_down_divider %>
+                  <%= menu_item "Search Groups", favorites_url %>
+                  <%= menu_item "Create a Group", favorites_url %>
+                <% end %>
+              </li>
 
-              <li><%= link_to "Browse Products", root_path %></li>
-              <li><%= link_to "List your Item", photostreams_path %></li>
-              <li><%= link_to "Shopping Cart", photostreams_path %></li>
               <li><%= link_to "Upload", photos_upload_path %></li>
               <li><%= drop_down current_user do %>
                     <%= menu_item "Log Out",
                     destroy_user_session_path, method: :delete %>
-                    <%= menu_item "Settings", account_path %>
+                    <%= menu_item "Settings", edit_account_path %>
                   <% end %>
               </li>
             </ul>
