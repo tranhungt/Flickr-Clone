@@ -1,5 +1,5 @@
 <div class="photo_meta">
-<a href="photostream/<%= photo.user.photostream.id%>">
+<a href="photostreams/<%= photo.user.photostream.id%>">
   <%= photo.user %>
 </a>
 <%= form_for :favorite, :url => favorites_path, :remote => true, :id => "favorite_form" do |f| %>

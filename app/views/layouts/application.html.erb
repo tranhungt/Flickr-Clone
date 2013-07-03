@@ -32,6 +32,12 @@
               <li><%= link_to "List your Item", photostreams_path %></li>
               <li><%= link_to "Shopping Cart", photostreams_path %></li>
               <li><%= link_to "Upload", photos_upload_path %></li>
+              <li><%= drop_down current_user do %>
+                    <%= menu_item "Log Out",
+                    destroy_user_session_path, method: :delete %>
+                    <%= menu_item "Settings", account_path %>
+                  <% end %>
+              </li>
             </ul>
           </div>
         </div>
