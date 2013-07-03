@@ -171,6 +171,7 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 3.2.1)
   devise
+  ejs
   jquery-rails
   less-rails
   paperclip (~> 3.0)
