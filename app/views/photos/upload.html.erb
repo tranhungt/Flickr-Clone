@@ -1,7 +1,7 @@
 <%= form_for @photos, :url => photos_path, :html => { :multipart => true , :id => "photo_form"} do |form| %>
   <%= form.file_field :image %>
   <%= render :partial => './add_tag' %>
-  <label for="set">Add Set</label> 
+  <%= render :partial => './add_collection' %>
   <%= form.submit value="Upload Photo" %>
 <% end %>
 <a  href="#" id="add_photo">Add Photo</a>

@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :favorite_photos, through: :favorites, 
   source: :photo
+  has_many :collections
+  has_many :collection_photos, through: :collections, source: :photo_collections
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
