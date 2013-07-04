@@ -16,6 +16,12 @@ class User < ActiveRecord::Base
   has_many :collections
   has_many :collection_photos, through: :collections, source: :photo_collections
 
+  has_many :friendships
+  has_many :friends, through: :friendships
+  belongs_to :friendship
+  has_many :followers, through: :friendships, source: :user
+
+
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
   validate :username, :unique => true
