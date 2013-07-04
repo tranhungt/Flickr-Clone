@@ -6,8 +6,11 @@ class PhotosController < ApplicationController
   def create
     photostream = current_user.photostream
     @photo = photostream.photos.build(params[:photo])
-    @photo.save
-    redirect_to photostreams_path
+    if @photo.save
+      redirect_to photostreams_path
+    else
+      render :upload
+    end
   end
 
   def index

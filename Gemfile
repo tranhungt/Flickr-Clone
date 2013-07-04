@@ -24,7 +24,7 @@ gem 'jquery-rails'
 
 #addons
 gem 'devise'
-gem 'paperclip', '~> 3.0'
+gem 'paperclip'
 gem 'aws-sdk'
 gem 'backbone-on-rails'
 gem 'ejs'
