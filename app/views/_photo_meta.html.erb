@@ -1,6 +1,6 @@
 <div class="photo_meta">
-<a href="photostreams/<%= photo.user.photostream.id%>">
-  <%= photo.user %>
+<a href="/photostreams/<%= photo.user.photostream.id%>">
+  <%= photo.user.username || photo.user.email %>
 </a>
 
 
