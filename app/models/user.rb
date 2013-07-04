@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :username
 
   has_one :photostream
   has_many :photos, through: :photostreams
@@ -17,5 +17,7 @@ class User < ActiveRecord::Base
   has_many :collection_photos, through: :collections, source: :photo_collections
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+
+  validate :username, :unique => true
 
 end

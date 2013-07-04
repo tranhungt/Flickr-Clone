@@ -1,4 +1,15 @@
+<p> Your buddy icon. Update for the world to see! </p>
 <%= form_for @user, :url => account_path, :html => { :multipart => true } do |form| %>
   <%= form.file_field :avatar %>
   <%= form.submit value="Upload Photo" %>
 <% end %>
+<p> Your username. <%= @user.username %>
+  <br>
+  This is unique and will also be used as your global address. 
+</p>
+<%= form_for @user, :url => account_path do |form| %>
+<%#= form.label :username value="Username"%>
+<%= form.text_field :username %>
+<%= form.submit value="Update Username" %>
+<% end %>
+
