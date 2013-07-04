@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   def upload
     @photos = Photo.new
+    @collections = Collection.all
   end
   def create
     photostream = current_user.photostream

@@ -1,0 +1,10 @@
+<ul>
+<% @collections.each do |collection| %>
+  <li>
+    <%= collection.title %>
+    <%= render :partial => './display_photos', 
+    :locals => {photos: collection.photos} %>
+  </li>
+<% end %>
+
+</ul>
