@@ -1,7 +1,9 @@
-<ul>
-<% @photos.each do |photo| %>
-<li>
- <%= render partial: './display_photo', locals: {photo: photo} %>
-</li>
-<% end %>
-</ul>
+<div id='favorites_index'>
+  <ul>
+  <% @photos.each do |photo| %>
+  <li>
+   <%= render partial: './display_photo', locals: {photo: photo} %>
+  </li>
+  <% end %>
+  </ul>
+</div>
