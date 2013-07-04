@@ -1,0 +1,9 @@
+<% if(user != current_user) %>
+<%= render :partial => './friend_form', :locals => {user: user} %>
+
+
+<% end %>
+
+<% if(user == current_user) %>
+
+<% end %>
