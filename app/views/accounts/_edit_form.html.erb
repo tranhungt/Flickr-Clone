@@ -1,15 +1,50 @@
+<div id="account_edit">
 <p> Your buddy icon. Update for the world to see! </p>
-<%= form_for @user, :url => account_path, :html => { :multipart => true } do |form| %>
+<%= image_tag @user.avatar.url(:medium) %>
+<a href="#" id="edit_avatar">Edit</a>
+<%= form_for @user, :url => account_path, :html => { :multipart => true, :id => "avatar_form", :class => 'hidden'} do |form| %>
   <%= form.file_field :avatar %>
   <%= form.submit value="Upload Photo" %>
 <% end %>
+
+
 <p> Your username. <%= @user.username %>
   <br>
   This is unique and will also be used as your global address. 
 </p>
-<%= form_for @user, :url => account_path do |form| %>
-<%#= form.label :username value="Username"%>
+<a href="#" id="edit_username">Edit</a>
+<%= form_for @user, :url => account_path, :html => {:id => "username_form", :class => "hidden"} do |form| %>
+<%= form.label :username, value="Username"%>
 <%= form.text_field :username %>
 <%= form.submit value="Update Username" %>
 <% end %>
+
+<p>Your E-mail </p>
+<%= @user.email %>
+<a href="#" id="edit_email">Edit</a>
+<%= form_for @user, :url => account_path, :html => {:id => "email_form", :class => "hidden"} do |form| %>
+<%= form.label :username, value="Email"%>
+<%= form.text_field :email %>
+<%= form.submit value="Update Email" %>
+<% end %>
+
+</div>
+
+<script>
+$(function(){
+  $('#edit_avatar').click(function(event){
+    $('#avatar_form').toggleClass('hidden');
+  })
+
+  $('#edit_username').click(function(event){
+    $('#username_form').toggleClass('hidden');
+  })
+
+  $('#edit_email').click(function(event){
+    $('#email_form').toggleClass('hidden');
+  })
+
+
+})
+</script>
 
