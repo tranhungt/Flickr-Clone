@@ -5,6 +5,8 @@ class AccountsController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(params[:user])
+    @user.photostream.update_attributes(:username => @user.username)
+
     redirect_to account_url
   end
   def show
