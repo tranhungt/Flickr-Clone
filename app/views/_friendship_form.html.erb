@@ -1,0 +1,31 @@
+<div id="friendship_form">
+  <% if current_user.friends.include?(user) %>
+    <div class="friendship_div">
+    <%= form_for :friendship, url: friendships_path, :html => {:class => "friendship_form hidden"}, remote: true do |f| %>
+      <%= f.hidden_field :friend_id, :value => user.id %>
+      <%= f.submit :value => "Friend"%>
+    <% end %>
+
+
+    <%= form_for :friendship, url: '/unfriend', :html => {:class => "friendship_form"}, remote: true do |f| %>
+      <%= f.hidden_field :friend_id, :value => user.id %>
+      <%= f.submit :value => "Un-friend"%>
+    <% end %>
+    </div>
+
+  <% else %>
+    <div class="friendship_div">
+    <%= form_for :friendship, url: friendships_path, :html => {:class => "friendship_form"}, remote: true do |f| %>
+      <%= f.hidden_field :friend_id, :value => user.id %>
+      <%= f.submit :value => "Friend"%>
+    <% end %>
+
+
+    <%= form_for :friendship, url: '/unfriend', :html => {:class => "friendship_form hidden"}, remote: true do |f| %>
+      <%= f.hidden_field :friend_id, :value => user.id %>
+      <%= f.submit :value => "Un-friend"%>
+    <% end %>
+    </div>
+
+  <% end %>
+</div>
