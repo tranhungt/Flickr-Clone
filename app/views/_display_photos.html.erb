@@ -1,0 +1,12 @@
+
+<ul>
+<% photos.each do |photo| %>
+  <li class="photos">
+
+    <a href="/photos/<%= photo.id %>">
+      <%= render partial: './display_photo', locals: {photo: photo} %>
+     </a>
+  </li>
+  <% end %>
+</ul>
+

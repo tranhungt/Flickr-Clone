@@ -1,0 +1,9 @@
+  <div id="collections_select">
+  <% collections.each do |collection| %>
+    <label for="<%= collection.id %>"><%= collection.title %></label>
+    <input type ="checkbox" 
+    value="<%= collection.id %>" 
+    id="<%= collection.id %>" 
+    name="photo[photo_collections_attributes][<%= collection.id %> ][collection_id]">
+  <% end %>
+</div>

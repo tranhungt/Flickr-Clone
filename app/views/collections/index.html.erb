@@ -1,6 +1,6 @@
 <ul>
 <% @collections.each do |collection| %>
-  <li>
+  <li>Collection:
     <%= collection.title %>
     <%= render :partial => './display_photos', 
     :locals => {photos: collection.photos} %>
