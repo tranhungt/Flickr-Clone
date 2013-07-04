@@ -1,17 +1,6 @@
 <%= form_for :collection, :url => collections_path, :remote => true, :html => {:id => "add_collection"} do |f| %>
 <%= f.label "Add Collection" %>
-<%= f.text_field :title %>
+<%= f.text_field :title, :id => "collection_title_field" %>
 <%= f.submit value="Add" %>
 <% end %>
 
-<script>
-$(function(){
-  $('#add_collection').on('ajax:success', function(event, data){
-    console.log($(data))
-    var collection = $(data)[0]
-    var templateFn = JST['add_collection'];
-    var template = templateFn({collection: collection})
-    $('#collections_select').append(template);
-  })
-})
-</script>
