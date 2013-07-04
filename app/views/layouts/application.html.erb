@@ -15,9 +15,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-                      <a class="brand" href="<%= root_path %>"><img src='assets/icon.jpeg'></a>
+            <a class="brand" href="<%= root_path %>"><img src='/assets/icon.jpeg'></a>
+
           <div class="nav-collapse">
             <ul class="nav">
+      <% if user_signed_in? %> 
               <li>
                 <%= drop_down "You" do %>
                   <%= menu_item "Photostream", photostream_path(current_user.id) %>
@@ -47,12 +49,16 @@
               </li>
 
               <li><%= link_to "Upload", photos_upload_path %></li>
-              <li><%= drop_down current_user do %>
+              
+              <li> 
+                    <%= drop_down "<img src='/assets/default_profile.jpeg'>"  do %>
                     <%= menu_item "Log Out",
                     destroy_user_session_path, method: :delete %>
                     <%= menu_item "Settings", edit_account_path %>
                   <% end %>
               </li>
+          <% end %>
+
             </ul>
           </div>
         </div>
