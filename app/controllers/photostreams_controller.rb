@@ -3,6 +3,8 @@ class PhotostreamsController < ApplicationController
     @photos = Photo.all #.where("favorites.user_id => ?",current_user.id)
   end
   def show
-    @photos = Photostream.find(params[:id]).photos
+    photostream = Photostream.find(params[:id])
+    @photos = photostream.photos
+    @user = photostream.user
   end
 end
