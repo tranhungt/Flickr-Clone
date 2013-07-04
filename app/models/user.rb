@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :username
 
   has_one :photostream
-  has_many :photos, through: :photostreams
+  has_many :photos, through: :photostream, source: :photos
   has_many :favorites
   has_many :favorite_photos, through: :favorites, 
   source: :photo
@@ -25,5 +25,12 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
   validate :username, :unique => true
+
+  before_create :default_values
+
+  def default_values
+    self.build_photostream
+    self.avatar =  File.open('app/assets/images/default_profile.jpeg') 
+  end
 
 end
