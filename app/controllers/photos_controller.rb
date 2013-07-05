@@ -3,10 +3,12 @@ class PhotosController < ApplicationController
     @photos = Photo.new
     @collections = Collection.all
   end
+
   def create
     photostream = current_user.photostream
     params[:photo_uploads].each do |_, photoParams|
-      photostream.photos.build(photoParams[:photo])
+      photo = photostream.photos.build(photoParams[:photo])
+      photo.tags_attributes = params[:tags]
     end
 
     if photostream.save!
