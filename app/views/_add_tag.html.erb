@@ -8,7 +8,7 @@
   <input type="text" 
           placeholder="Add Tag"
           name="tags[tags_attributes][title]" 
-          id="tag">
+          id="tag_input">
 </div>
 
 
@@ -16,26 +16,46 @@
 $(function(){
   list = ['jester', 'java', 'javascript', 'jump'];
   var templateFn = JST['add_tag']
-  $('#tag').autocomplete({source: list, 
-                          appendTo: '#tags'
-                          ,
-                          autoFocus: true,
-                          select: function(event, ui){
-                            var template = templateFn({tag: ui.item.value})
-                            $('#tags_list').append(template);
-                            this.value = '';
-                            return false;
-                          }
+  $('#tag_input').autocomplete({
+                          source: list,
+                          // function(request, response){
+
+                          // },
+                          appendTo: '#tags',
+                          autoFocus: true
+                          // select: function(event, ui){
+                          //   var template = templateFn({tag: ui.item.value})
+                          //   $('#tags_list').append(template);
+                          //   this.value = '';
+                          //   return false;
+                          // }
                           // ,
-                          // close: function(event, ui){
+                          // change: function(event, ui){
                           //   var v = this.value;
                           //   list.push(v);
+                          //   this.value = '';
+                          //   return false;
                           // }
 
 
 
                           
   });
+
+  function getList(){
+    $ajax.get({
+
+    })
+  }
+  $('#tag_input').keydown(function (e){
+    if(e.keyCode == 13){
+      console.log(this.value);
+      var template = templateFn({tag: this.value})
+      $('#tags_list').append(template);
+      this.value = '';
+
+    }
+  })
 })
 
 </script>

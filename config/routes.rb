@@ -9,6 +9,7 @@ Flicker::Application.routes.draw do
   resources :favorites
   resources :friendships
   resources :contacts
+  resources :tags, :only => [:index]
   post '/delete_favorite', to: 'Favorites#destroy'
   post '/unfriend', to: 'Friendships#destroy'
 end
