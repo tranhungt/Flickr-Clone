@@ -2,7 +2,8 @@
 <%#= image_tag @user.avatar.url(:medium) %>
 <%#= image_tag @user.avatar.url(:thumb) %>
 
-<%= link_to "Photos Index", photos_url %>
+
+
 <ul>
   <% @tags.each do |tag| %>
     <li>
@@ -10,6 +11,7 @@
     </li>
   <% end %>
 </ul>
+
 <%= render :partial => './display_photo', :locals => {photo: @photo} %>
 
 

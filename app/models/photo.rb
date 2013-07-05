@@ -15,8 +15,8 @@ class Photo < ActiveRecord::Base
   has_many :favorited_users, through: :favorites, source: :user
   has_many :photo_collections
 
-  accepts_nested_attributes_for :tags
-  accepts_nested_attributes_for :photo_collections
+  accepts_nested_attributes_for :tags, :reject_if => :all_blank
+  accepts_nested_attributes_for :photo_collections, :reject_if => :all_blank
 
 
   def isCurrentFavorite?
