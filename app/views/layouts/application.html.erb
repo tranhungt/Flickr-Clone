@@ -32,7 +32,7 @@
 
               <li><%= drop_down "Contacts" do %>
                   <%= menu_item "Recent Photos", contacts_path %>
-                  <%= menu_item "Contact List", root_url %>
+                  <%= menu_item "Contact List", root_url  %>
                   <%#= drop_down_divider %>
                   <%= menu_item "Photo of Contacts", favorites_url %>
                   <%= menu_item "Add Contacts", favorites_url %>
@@ -68,7 +68,10 @@
 <!-- Devise notices -->
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<div class='container'>
 <%= yield %>
+</div>
+
 
 </body>
 </html>

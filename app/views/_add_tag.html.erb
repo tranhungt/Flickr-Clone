@@ -1,2 +1,41 @@
 <label for="tag">Tags</label>
-<input type="text" placeholder="Add Tag" name="tags[tags_attributes][title]" id="tag">
+<% list = ['jester', 'java', 'javascript', 'jump'] %>
+<ul id="tags_list">
+
+</ul>
+
+<div id="tags" class="ui-helper-clearfix">
+  <input type="text" 
+          placeholder="Add Tag"
+          name="tags[tags_attributes][title]" 
+          id="tag">
+</div>
+
+
+<script>
+$(function(){
+  list = ['jester', 'java', 'javascript', 'jump'];
+  var templateFn = JST['add_tag']
+  $('#tag').autocomplete({source: list, 
+                          appendTo: '#tags'
+                          ,
+                          autoFocus: true,
+                          select: function(event, ui){
+                            var template = templateFn({tag: ui.item.value})
+                            $('#tags_list').append(template);
+                            this.value = '';
+                            return false;
+                          }
+                          // ,
+                          // close: function(event, ui){
+                          //   var v = this.value;
+                          //   list.push(v);
+                          // }
+
+
+
+                          
+  });
+})
+
+</script>

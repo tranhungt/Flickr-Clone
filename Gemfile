@@ -28,6 +28,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'backbone-on-rails'
 gem 'ejs'
+gem 'jquery-ui-rails'
 
 #bootstraps
 gem 'therubyracer'
