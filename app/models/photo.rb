@@ -19,6 +19,7 @@ class Photo < ActiveRecord::Base
   accepts_nested_attributes_for :tags, :reject_if => :all_blank
   accepts_nested_attributes_for :photo_collections, :reject_if => :all_blank
 
+  validates :image, :presence => true
 
   def isCurrentFavorite?
     current_user.favorite_photos.include?(self)

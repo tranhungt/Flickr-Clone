@@ -11,11 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704165455) do
+ActiveRecord::Schema.define(:version => 20130705165900) do
 
   create_table "collections", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.integer  "comment_id"
+    t.string   "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -70,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130704165455) do
     t.integer  "user_id"
     t.integer  "set_id"
     t.integer  "photostream_id"
+    t.string   "description"
   end
 
   add_index "photos", ["photostream_id"], :name => "index_photos_on_photostream_id"
