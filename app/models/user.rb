@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :friend_photos, through: :friends, source: :photos
 
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => {:large => "800x800>", :medium => "300x300>", :thumb => "100x100>", :icon => "20x20>" }
 
   validate :username, :unique => true
 

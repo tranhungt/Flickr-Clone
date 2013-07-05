@@ -3,7 +3,7 @@
   <li>Collection:
     <%= collection.title %>
     <%= render :partial => './display_photos', 
-    :locals => {photos: collection.photos} %>
+    :locals => {photos: collection.photos, size: :medium} %>
   </li>
 <% end %>
 
