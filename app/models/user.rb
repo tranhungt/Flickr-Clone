@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :friends, through: :friendships
   belongs_to :friendship
   has_many :followers, through: :friendships, source: :user
+  has_many :friend_photos, through: :friends, source: :photos
 
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }

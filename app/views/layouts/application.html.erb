@@ -22,7 +22,7 @@
       <% if user_signed_in? %> 
               <li>
                 <%= drop_down "You" do %>
-                  <%= menu_item "Photostream", photostream_path(current_user.id) %>
+                  <%= menu_item "Photostream", photostream_path(current_user.photostream.id) %>
                   <%= menu_item "Photo Collections", collections_path %>
                   <%#= drop_down_divider %>
                   <%= menu_item "Favorites", favorites_url %>
@@ -31,8 +31,8 @@
 
 
               <li><%= drop_down "Contacts" do %>
-                  <%= menu_item "Recent Photos", photostreams_path %>
-                  <%= menu_item "Contact List", collections_path %>
+                  <%= menu_item "Recent Photos", contacts_path %>
+                  <%= menu_item "Contact List", root_url %>
                   <%#= drop_down_divider %>
                   <%= menu_item "Photo of Contacts", favorites_url %>
                   <%= menu_item "Add Contacts", favorites_url %>
