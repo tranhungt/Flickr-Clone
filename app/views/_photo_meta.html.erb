@@ -2,7 +2,12 @@
 <a href="/photostreams/<%= photo.user.photostream.id%>">
   <%= photo.user.username || photo.user.email %>
 </a>
-<%= render :partial => './friendship_form', :locals =>{user: photo.user} %>
+<% unless current_user == photo.user %>
+  <%= render :partial => './friendship_form', :locals =>{user: photo.user} %>
+  <a href="/photostreams/<%= photo.user.photostream.id%>">
+    <%= render :partial => './uploader_photo_icon', :locals => {user: photo.user} %>
+  </a>
+<% end %>
 <%= render :partial => './photo_favorite', :locals => {photo: photo} %>
 
 

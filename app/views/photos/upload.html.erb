@@ -1,8 +1,11 @@
 <%= form_for @photos, :url => photos_path, :html => { :multipart => true , :id => "photo_form"} do |form| %>
-  <%= form.file_field :image %>
+  <div id="add_photo_div">
+    <%= form.file_field :image %>
+  </div>
+  <a  href="#" id="add_photo">Add Photo</a>
   <%= render :partial => './add_tag' %>
   <%= render :partial => './select_collections', :locals => {collections: @collections} %>
+  <%= render :partial => "./add_collection" %>
+
   <%= form.submit value="Upload Photo" %>
 <% end %>
-<%= render :partial => "./add_collection" %>
-<a  href="#" id="add_photo">Add Photo</a>
