@@ -14,38 +14,31 @@
 
 <script>
 $(function(){
-  list = ['jester', 'java', 'javascript', 'jump'];
+  var titles = [];
+  var ids = [];
   var templateFn = JST['add_tag']
   $('#tag_input').autocomplete({
-                          source: list,
-                          // function(request, response){
-
-                          // },
+                          source: getList(),
                           appendTo: '#tags',
                           autoFocus: true
-                          // select: function(event, ui){
-                          //   var template = templateFn({tag: ui.item.value})
-                          //   $('#tags_list').append(template);
-                          //   this.value = '';
-                          //   return false;
-                          // }
-                          // ,
-                          // change: function(event, ui){
-                          //   var v = this.value;
-                          //   list.push(v);
-                          //   this.value = '';
-                          //   return false;
-                          // }
-
-
-
-                          
   });
 
   function getList(){
-    $ajax.get({
+    $.ajax({
+      type: "GET",
+      url: "/tags",
+      success: function(data){
+        var tags = $(data);
+        _(tags).each(function(tag){
+          titles.push(tag.title)
+          ids.push(tag.id)
+        })
+        console.log(titles)
 
+      }
     })
+    return titles;
+
   }
   $('#tag_input').keydown(function (e){
     if(e.keyCode == 13){
@@ -53,7 +46,6 @@ $(function(){
       var template = templateFn({tag: this.value})
       $('#tags_list').append(template);
       this.value = '';
-
     }
   })
 })
