@@ -8,7 +8,13 @@ class PhotosController < ApplicationController
     photostream = current_user.photostream
     params[:photo_uploads].each do |_, photoParams|
       photo = photostream.photos.build(photoParams[:photo])
-      photo.tags_attributes = params[:tags]
+      params[:tags].each do |_, tagParams|
+        if tagParams[:tag_id].to_i > 0
+          photo.photo_taggings.build(:tag_id => tagParams[:tag_id])
+        else
+          photo.tags.build(:title => tagParams[:tag_id])
+        end
+      end
     end
 
     if photostream.save!

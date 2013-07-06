@@ -1,4 +1,5 @@
 <li>
-  <input type=hidden name="tags[title]" value="<%= tag %>"> 
-  <%= tag %>
+  <input type=hidden name="tags[<%= Date.now() %>][tag_id]" 
+          value="<%= tag_id || tag_title%>"> 
+  <%= tag_title %>
 </li>

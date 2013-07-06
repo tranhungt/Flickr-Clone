@@ -7,7 +7,6 @@
 <div id="tags" class="ui-helper-clearfix">
   <input type="text" 
           placeholder="Add Tag"
-          name="tags[tags_attributes][title]" 
           id="tag_input">
 </div>
 
@@ -15,7 +14,7 @@
 <script>
 $(function(){
   var titles = [];
-  var ids = [];
+  var hash = {};
   var templateFn = JST['add_tag']
   $('#tag_input').autocomplete({
                           source: getList(),
@@ -31,19 +30,20 @@ $(function(){
         var tags = $(data);
         _(tags).each(function(tag){
           titles.push(tag.title)
-          ids.push(tag.id)
+          hash[tag.title] = tag.id;
         })
         console.log(titles)
-
+        console.log(hash)
+        console.log(hash['asdf'] == undefined)
       }
     })
     return titles;
 
   }
   $('#tag_input').keydown(function (e){
-    if(e.keyCode == 13){
+    if(e.keyCode == 13 && this.value != ''){
       console.log(this.value);
-      var template = templateFn({tag: this.value})
+      var template = templateFn({tag_title: this.value, tag_id: hash[this.value]})
       $('#tags_list').append(template);
       this.value = '';
     }
