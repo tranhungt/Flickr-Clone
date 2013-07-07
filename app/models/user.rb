@@ -31,7 +31,8 @@ class User < ActiveRecord::Base
 
   def default_values
     self.build_photostream
-    self.avatar =  File.open('app/assets/images/default_profile.jpeg') 
+    # self.avatar =  File.open('app/assets/images/default_profile.jpeg')
+    # https://s3-us-west-1.amazonaws.com/flickr-clone-photos/photo.jpg 
   end
 
 end

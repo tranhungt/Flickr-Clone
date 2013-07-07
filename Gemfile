@@ -29,6 +29,7 @@ gem 'aws-sdk'
 gem 'backbone-on-rails'
 gem 'ejs'
 gem 'jquery-ui-rails'
+gem 'jquery-fileupload-rails'
 
 #bootstraps
 gem 'therubyracer'

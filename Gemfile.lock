@@ -78,6 +78,9 @@ GEM
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
+    jquery-fileupload-rails (0.4.1)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -175,6 +178,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   ejs
+  jquery-fileupload-rails
   jquery-rails
   jquery-ui-rails
   less-rails
