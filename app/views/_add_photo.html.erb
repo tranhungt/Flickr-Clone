@@ -7,7 +7,7 @@
   <input name="authenticity_token" 
           type="hidden"
           value="$('meta[name="csrf-token"]').attr('content')" />
-  <input type='file' name="photo[image]" id="add_a_file">
+  <input type='file' name="photo[image]" id="add_a_file" STYLE="opacity: 0.5">
   <!-- <input type="submit"> -->
 </form>
   <!-- <input type='file' name ="photo_uploads[0][photo][image]" id="add_a_file" STYLE="opacity: 0.5">
@@ -31,9 +31,12 @@
           options.dataType = "json"
         },
         complete: function(XMLHttpRequest, textStatus){
-          console.log(textStatus);
-          console.log(XMLHttpRequest);
           if(textStatus === "success"){
+            console.log("success")
+            photo = XMLHttpRequest.responseJSON
+            var photoTemplateFn = JST['uploaded_photo']
+            var photoTemplate = photoTemplateFn({photo: photo})
+            $('#add_photo_div').append(photoTemplate)
             $(that).val('');
           }
         }

@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
   has_attached_file :image, 
                     :styles => { :large => '1000x1000>', 
                                  :medium => "450x450>", 
-                                 :thumb => "100x100>",
+                                 :thumb => "200x200>",
                                  :icon => "30x30>" }
 
   has_many :photo_taggings
@@ -27,5 +27,13 @@ class Photo < ActiveRecord::Base
   
   def isFavoriteUser?(user)
     user.favorite_photos.include?(self)
+  end
+
+  def url
+    image.url(:thumb)
+  end
+
+  def serializable_hash(options= {})
+    super(options.merge({:method => [:url]} ))
   end
 end

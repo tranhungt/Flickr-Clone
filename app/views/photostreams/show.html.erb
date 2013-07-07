@@ -1,2 +1,5 @@
+<% if current_user == @user %>
+  <%= link_to "Edit Photostream", edit_photostream_url %>
+<% end %>
 <%= render :partial => './user_profile_bar', :locals => {user: @user} %>
 <%= render :partial => './display_photos', :locals => {photos: @photos, size: :medium} %>

@@ -1,8 +1,6 @@
 <%= render :partial => './add_photo' %>
 
 <%= form_for :photo_uploads, :url => photos_path, :html => { :multipart => true , :id => "photo_form"} do |form| %>
-  <%= form.file_field :image %>
-
   <br/>
   <input type="text" placeholder="Add a Title">
   <%= render :partial => './add_tag' %>

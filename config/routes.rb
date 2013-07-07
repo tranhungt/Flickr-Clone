@@ -3,8 +3,8 @@ Flicker::Application.routes.draw do
   root :to => "Root#root" 
   resource :account
   get '/photos/upload', to: 'Photos#upload' 
-  resources :photostreams, :only => [:index, :show]
-  resources :photos, :only => [:create, :show]
+  resources :photostreams, :only => [:index, :show, :edit]
+  resources :photos, :only => [:create, :show, :destroy]
   resources :collections
   resources :favorites
   resources :friendships

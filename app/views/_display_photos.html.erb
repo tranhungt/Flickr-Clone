@@ -2,10 +2,7 @@
 <ul>
 <% photos.each do |photo| %>
   <li class="photos">
-
-    <a href="/photos/<%= photo.id %>">
-      <%= render partial: './display_photo', locals: {photo: photo, size: size} %>
-     </a>
+    <%= render partial: './display_photo', locals: {photo: photo, size: size} %>
   </li>
   <% end %>
 </ul>

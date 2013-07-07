@@ -33,4 +33,10 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @tags = @photo.tags
   end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    render :json => @photo
+  end
 end

@@ -7,4 +7,8 @@ class PhotostreamsController < ApplicationController
     @photos = photostream.photos
     @user = photostream.user
   end
+  def edit
+    @photos = Photostream.find(params[:id]).photos
+  end
+
 end
