@@ -1,0 +1,12 @@
+<%= form_for :photo, url: photo_path(photo), :html => {:class => "delete_photo_form"}, remote: true, :method => :delete do |f| %>
+  <%= f.submit :value => "Delete"%>
+<% end %>
+
+<script>
+  $(function(){
+    $('.delete_photo_form').on('ajax:success', function(event){
+      event.preventDefault()
+      $(this).parents('div:first').remove();
+    })
+  })
+</script>

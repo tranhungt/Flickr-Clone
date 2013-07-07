@@ -1,0 +1,5 @@
+
+<% @photos.each do |photo| %>
+  <%= render :partial => './display_photo', :locals => {photo: photo, size: :thumb} %>
+  <%= render :partial => './delete_photo', :locals => {photo: photo} %>
+<% end %>
