@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.form
 //= require underscore
 //= require jquery.ui.autocomplete
 //= require twitter/bootstrap

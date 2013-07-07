@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705165900) do
+ActiveRecord::Schema.define(:version => 20130707025549) do
 
   create_table "collections", :force => true do |t|
     t.string   "title"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20130705165900) do
     t.integer  "set_id"
     t.integer  "photostream_id"
     t.string   "description"
+    t.boolean  "uploading"
   end
 
   add_index "photos", ["photostream_id"], :name => "index_photos_on_photostream_id"
