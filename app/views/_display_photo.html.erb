@@ -2,5 +2,7 @@
   <a href="/photos/<%= photo.id %>">
     <%= image_tag photo.image.url(size) %>
   </a>
-<%= render partial: './photo_meta', locals: {photo: photo} %>
+<% unless @ignoreMeta %>
+  <%= render partial: './photo_meta', locals: {photo: photo} %>
+<% end %>
 </div>
