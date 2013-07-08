@@ -4,7 +4,11 @@ Flicker::Application.routes.draw do
   resource :account
   get '/photos/upload', to: 'Photos#upload' 
   resources :photostreams, :only => [:index, :show, :edit]
-  resources :photos, :only => [:create, :show, :destroy]
+  resources :photos, :only => [:create, :show, :destroy] do
+    collection do
+      put :upload_multiple
+    end
+  end
   resources :collections
   resources :favorites
   resources :friendships

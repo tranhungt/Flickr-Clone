@@ -1,13 +1,38 @@
 <%= render :partial => './add_photo' %>
 
-<%= form_for :photo_uploads, :url => photos_path, :html => { :multipart => true , :id => "photo_form"} do |form| %>
+<div id="div_upload_form">
+<%= form_for :photo, :url => upload_multiple_photos_path, :html => { :method => "put" , :id => "photo_form"} do |form| %>
   <br/>
+<div id="div_photo_ids">
+</div>
+
   <input type="text" placeholder="Add a Title">
   <%= render :partial => './add_tag' %>
   <%= render :partial => './select_collections', :locals => {collections: @collections} %>
   
 
-<input type="button" value="Submit" onClick="this.form.submit();" />
+<input type="button" value="Submit" onClick="this.form.submit();" id="photo_form_submit" />
 
 <% end %>
 <%= render :partial => "./add_collection" %>
+
+</div>
+<script>
+$(function(){
+  var submitClicked = false;
+  $('#photo_form_submit').click(function(event){
+    submitClicked = true;
+  })
+
+  $(window).bind("unload", function(){
+    console.log("left the page")
+  })
+  $(window).bind("beforeunload", function(){
+    if(submitClicked === false){
+      return confirm("Do you really want to leave page before upload?")
+    }
+  })
+
+})
+
+</script>

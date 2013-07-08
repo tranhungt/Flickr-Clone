@@ -8,11 +8,7 @@
           type="hidden"
           value="$('meta[name="csrf-token"]').attr('content')" />
   <input type='file' name="photo[image]" id="add_a_file" STYLE="opacity: 0.5">
-  <!-- <input type="submit"> -->
 </form>
-  <!-- <input type='file' name ="photo_uploads[0][photo][image]" id="add_a_file" STYLE="opacity: 0.5">
- -->
-  <!-- <a  href="#" id="add_photo">Add Photo</a> -->
 <a href='#' id="click_to_add_file">Add A Photo</a>
 
 <script>
@@ -21,8 +17,6 @@
   })
   $(function(){
     $('input:file').on('change',function(event){
-      // console.log($(this).val(''));       //to clear file input
-      // console.log($(this).serialize());
       console.log($(this.form));
       console.log('on change')
       var that = this
@@ -37,6 +31,8 @@
             var photoTemplateFn = JST['uploaded_photo']
             var photoTemplate = photoTemplateFn({photo: photo})
             $('#add_photo_div').append(photoTemplate)
+            var hiddenListItem = JST['hidden_list_item']({photo: photo})
+            $('#div_photo_ids').append(hiddenListItem)
             $(that).val('');
           }
         }
