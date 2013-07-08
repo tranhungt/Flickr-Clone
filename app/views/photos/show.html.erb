@@ -1,18 +1,20 @@
-<%#= image_tag @user.avatar.url %>
-<%#= image_tag @user.avatar.url(:medium) %>
-<%#= image_tag @user.avatar.url(:thumb) %>
+<div class="tags">
+	<ul>
+	  <% @tags.each do |tag| %>
+	    <li>
+	      <%= tag.title %>
+	    </li>
+	  <% end %>
+	</ul>
+</div>
 
-
-
-<ul>
-  <% @tags.each do |tag| %>
-    <li>
-      <%= tag.title %>
-    </li>
-  <% end %>
-</ul>
 
 <%= render :partial => './display_photo', :locals => {photo: @photo, size: :large} %>
-
+<div class="photo_title">
+	<%= @photo.title %>
+</div>
+<div class="photo_description>"
+	<%= @photo.description %>
+</div>
 
 

@@ -1,12 +1,18 @@
-<%= form_for :photo, url: photo_path(photo), :html => {:class => "delete_photo_form"}, remote: true, :method => :delete do |f| %>
-  <%= f.submit :value => "Delete"%>
-<% end %>
+<%#= form_for :photo, url: photo_path(photo), :html => {:class => "delete_photo_form"}, remote: true, :method => :delete do |f| %>
+  <%#= f.submit :value => "Delete"%>
+<%# end %>
+<form action="/photos/<%= photo.id %>" method="delete" data-remote="true" class="delete_photo_form">
+	<input type="submit" value="delete">
+</form>
+
 
 <script>
   $(function(){
     $('.delete_photo_form').on('ajax:success', function(event){
       event.preventDefault()
-      $(this).parents('div:first').remove();
+      $('.delete_photo_form').parents('li:first').remove();
+      console.log(this)
+      // $(this).parents('li:first').remove();
     })
   })
 </script>

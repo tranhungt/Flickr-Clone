@@ -6,16 +6,17 @@
 <div id="div_photo_ids">
 </div>
 
-  <input type="text" placeholder="Add a Title">
+  <input type="text" placeholder="Add a Title" name="photo[title]">
+  <br>
+  <input type="text" placeholder="Add a Description" name="photo[description]">
   <input type="hidden" name="photo[saved]" value="true">
   <%= render :partial => './add_tag' %>
-  <%= render :partial => './select_collections', :locals => {collections: @collections} %>
+  <%= render :partial => './select_collections'%>
   
 
 <input type="button" value="Submit" onClick="this.form.submit();" id="photo_form_submit" />
 
 <% end %>
-<%= render :partial => "./add_collection" %>
 
 </div>
 <script>

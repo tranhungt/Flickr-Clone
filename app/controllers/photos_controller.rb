@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   def upload
     @photos = Photo.new
-    @collections = Collection.all
+    @collections = current_user.collections
   end
 
   def create
@@ -26,13 +26,19 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-    render :json => @photo
+    render :json => {status:"ok"}
   end
 
   def upload_multiple
     if params[:photo][:tag_ids]
       params[:photo][:tag_ids].map! do |tag_id|
         tag_id = tag_id.to_i > 0 ? tag_id : Tag.create!(:title => tag_id).id
+      end
+    end
+
+    if params[:photo][:collection_ids]
+      params[:photo][:collection_ids].map! do |collection_id|
+        collection_id = collection_id.to_i > 0 ? collection_id : Collection.create!(:title => collection_id, :user_id => current_user.id).id
       end
     end
     @photos = Photo.find(params[:photo_ids])

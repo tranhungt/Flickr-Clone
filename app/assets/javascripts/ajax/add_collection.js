@@ -1,10 +1,37 @@
 $(function(){
-  $('#add_collection').on('ajax:success', function(event, data){
-    console.log($(data))
-    var collection = $(data)[0]
-    var templateFn = JST['add_collection'];
-    var template = templateFn({collection: collection})
-    $('#collections_select').append(template);
-    $('#collection_title_field').val('');
+  var titles = [];
+  var hash = {};
+  var templateFn = JST['add_collection']
+  $('#collection_input').autocomplete({
+                          source: getList(),
+                          appendTo: '#collections',
+                          autoFocus: true
+  });
+
+  function getList(){
+    $.ajax({
+      type: "GET",
+      url: "/collections/user_collections",
+      success: function(data){
+        var collections = $(data);
+        _(collections).each(function(collection){
+          titles.push(collection.title)
+          hash[collection.title] = collection.id;
+        })
+        console.log(titles)
+        console.log(hash)
+        console.log(hash['asdf'] == undefined)
+      }
+    })
+    return titles;
+
+  }
+  $('#collection_input').keydown(function (e){
+    if(e.keyCode == 13 && this.value != ''){
+      console.log(this.value);
+      var template = templateFn({collection_title: this.value, collection_id: hash[this.value]})
+      $('#collections_list').append(template);
+      this.value = '';
+    }
   })
 })

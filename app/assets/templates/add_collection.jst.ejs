@@ -1,5 +1,5 @@
-    <label for="<%= collection.id %>"><%= collection.title %></label>
-    <input type ="checkbox" 
-    value="<%= collection.id %>" 
-    id="<%= collection.id %>" 
-    name="photo[photo_collections_attributes][<%= collection.id %> ][collection_id]">
+<li>
+  <input type=hidden name="photo[collection_ids][]" 
+          value="<%= collection_id || collection_title %>"> 
+  <%= collection_title %>
+</li>

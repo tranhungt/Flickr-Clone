@@ -11,7 +11,11 @@ Flicker::Application.routes.draw do
       get :delete_unsaved
     end
   end
-  resources :collections
+  resources :collections do
+    collection do
+      get :user_collections
+    end
+  end
   resources :favorites
   resources :friendships
   resources :contacts
