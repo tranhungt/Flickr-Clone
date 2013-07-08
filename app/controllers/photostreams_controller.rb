@@ -4,7 +4,7 @@ class PhotostreamsController < ApplicationController
   end
   def show
     photostream = Photostream.find(params[:id])
-    @photos = photostream.photos
+    @photos = Photo.where(:photostream_id => photostream.id)
     @user = photostream.user
   end
   def edit
