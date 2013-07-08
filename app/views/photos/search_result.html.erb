@@ -1,0 +1,7 @@
+<% if @photos.length > 0 %>
+  <h3> Search results for "<%= @search_filter %>" by <%= @search_type %></h3>
+  <%= render :partial => './display_photos', :locals => {photos: @photos, size: :medium} %>
+<% else %>
+  <h2>Sorry, No results with with <%= @search_type %> "<%= @search_filter %>"</h2>
+    <h3><a href="<%= root_url %>">Back To Main page</a></h3>
+<% end %>

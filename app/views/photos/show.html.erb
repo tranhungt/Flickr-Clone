@@ -1,3 +1,4 @@
+<h3> <%= @photo.user.username || @photo.user.email %>'s Photostream!</h3>
 <form action="/photos/previous">
   <input type="hidden" name="current_photo_id" value="<%= @photo.id %>">
   <input type="submit" value="Previous">

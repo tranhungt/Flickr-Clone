@@ -1,0 +1,10 @@
+<div class="tags">
+  <ul>
+    <% @tags.each do |tag| %>
+      <li><a href="<%= search_by_tag_path(tag.title) %>">
+        <%= tag.title %>
+      </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
