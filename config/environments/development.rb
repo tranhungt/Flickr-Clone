@@ -38,7 +38,6 @@ Flicker::Application.configure do
     config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => 'flickr-clone-photos',
       :access_key_id => Figaro.env.AWS_ACCESS_KEY_ID,
       :secret_access_key => Figaro.env.AWS_SECRET_ACCESS_KEY
     },
