@@ -30,6 +30,7 @@ gem 'backbone-on-rails'
 gem 'ejs'
 gem 'jquery-ui-rails'
 gem 'jquery-fileupload-rails'
+gem 'figaro'
 
 #bootstraps
 gem 'therubyracer'
