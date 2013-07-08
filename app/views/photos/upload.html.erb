@@ -20,39 +20,25 @@
 </div>
 <script>
 $(function(){
-  photo_ids = [];
+  // photo_ids = [];
 
   var submitClicked = false;
+
   $('#photo_form_submit').click(function(event){
     submitClicked = true;
   })
 
-  $(window).bind("unload", function(){
-    deletePhotos();
-  })
+  hasPhoto = function(){
+    return $('#add_photo_div li').length > 0
 
-  getPhotoIds = function(){
-    console.log('get photo ids')
-    _($('#add_photo_div').find('li')).each(function(item){
-      photo_ids.push($(item).attr('data-id'))
-    })
-    photo_ids
   }
-  deletePhotos = function(){
-    console.log(photo_ids)
-    console.log('delete photos')
-    $.ajax({
-      type: "DELETE",
-      url: "/photos/delete_multiple",
-      data: {photo_ids: photo_ids}
-    })
-  }
+
   $(window).bind("beforeunload", function(){
-    if(submitClicked === false){
-      getPhotoIds();
+    if(submitClicked === false && hasPhoto() ){
       return confirm("Do you really want to leave page before upload?")
     }
   })
+
 
 
 })

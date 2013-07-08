@@ -36,4 +36,13 @@ class Photo < ActiveRecord::Base
   def serializable_hash(options= {})
     super(options.merge({:method => [:url]} ))
   end
+
+  def self.all
+    Photo.where(:saved => true)
+  end
+
+  def self.where(options = {})
+    options[:saved] = true
+    super(options)
+  end
 end
