@@ -7,6 +7,8 @@ Flicker::Application.routes.draw do
   resources :photos, :only => [:create, :show, :destroy] do
     collection do
       put :upload_multiple
+      delete :delete_multiple
+      get :delete_unsaved
     end
   end
   resources :collections

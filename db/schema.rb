@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707025549) do
+ActiveRecord::Schema.define(:version => 20130708072153) do
 
   create_table "collections", :force => true do |t|
     t.string   "title"
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 20130707025549) do
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20130707025549) do
     t.integer  "set_id"
     t.integer  "photostream_id"
     t.string   "description"
-    t.boolean  "uploading"
+    t.boolean  "saved",              :default => false
   end
 
   add_index "photos", ["photostream_id"], :name => "index_photos_on_photostream_id"

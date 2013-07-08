@@ -30,23 +30,32 @@ class PhotosController < ApplicationController
   end
 
   def upload_multiple
-    params[:photo][:tag_ids].map! do |tag_id|
-      tag_id = tag_id.to_i > 0 ? tag_id : Tag.create!(:title => tag_id).id
+    if params[:photo][:tag_ids]
+      params[:photo][:tag_ids].map! do |tag_id|
+        tag_id = tag_id.to_i > 0 ? tag_id : Tag.create!(:title => tag_id).id
+      end
     end
     @photos = Photo.find(params[:photo_ids])
     @photos.each do |photo|
       photo.update_attributes!(params[:photo])
     end
-    # params[:photo_uploads].each do |_, photoParams|
-    #   photo = photostream.photos.build(photoParams[:photo])
-    #   params[:tags].each do |_, tagParams|
-    #     if tagParams[:tag_id].to_i > 0
-    #       photo.photo_taggings.build(:tag_id => tagParams[:tag_id])
-    #     else
-    #       photo.tags.build(:title => tagParams[:tag_id])
-    #     end
-    #   end
-    # end
     redirect_to photostream_path(current_user.photostream)
   end
+
+  def delete_multiple
+    @photos = Photo.find(params[:photo_ids])
+    @photos.each do |photo|
+      photo.destroy
+    end
+
+    render json :@photos
+  end
+
+  def delete_unsaved
+    photos = current_user.photostream.photos.where(:saved => false)
+    photos.each do |photo|
+      photo.destroy
+    end
+    render json: {}
+  end 
 end
