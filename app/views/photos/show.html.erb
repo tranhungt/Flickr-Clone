@@ -1,20 +1,25 @@
-<div class="tags">
-	<ul>
-	  <% @tags.each do |tag| %>
-	    <li>
-	      <%= tag.title %>
-	    </li>
-	  <% end %>
-	</ul>
-</div>
-
+<form action="/photos/previous">
+  <input type="hidden" name="current_photo_id" value="<%= @photo.id %>">
+  <input type="submit" value="Previous">
+</form> 
+<form action="/photos/next">
+  <input type="hidden" name="current_photo_id" value="<%= @photo.id %>">
+  <input type="submit" value="Next">
+</form> 
 
 <%= render :partial => './display_photo', :locals => {photo: @photo, size: :large} %>
+
+<h4>Tags</h4>
+<%= render :partial => './display_tags', :locals => {tags: @tags} %>
+<h4>Title</h4>
 <div class="photo_title">
 	<%= @photo.title %>
 </div>
+<h4>Description</h4>
 <div class="photo_description>"
 	<%= @photo.description %>
 </div>
+
+<script
 
 

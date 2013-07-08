@@ -35,14 +35,16 @@ Flicker::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-    config.paperclip_defaults = {
+  config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :access_key_id => Figaro.env.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Figaro.env.AWS_SECRET_ACCESS_KEY
+      :bucket => "flickr-clone-photos",
+      :access_key_id => 'AKIAIFKXAAQCR3UQMMWA',
+      :secret_access_key => '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'
     },
     :s3_host_name => 's3-us-west-1.amazonaws.com',
 
   }
+
 
 end

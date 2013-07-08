@@ -4,6 +4,7 @@ $(function(){
   var templateFn = JST['add_tag']
   $('#tag_input').autocomplete({
                           source: getList(),
+                          minLength: 0,
                           appendTo: '#tags',
                           autoFocus: true
   });

@@ -57,6 +57,12 @@
                     <%= menu_item "Settings", edit_account_path %>
                   <% end %>
               </li>
+              <li>
+                <form method="get" action="/search" id="custom-search-form" class="form-search form-horizontal pull-right input-append">
+                        <input name="search_filter" type="text" class="search-query" placeholder="Search by Tag" id="tag_search_input">
+                        <button type="submit" class="btn"><i class="icon-search"></i></button>
+                </form>
+              </li>
           <% end %>
 
             </ul>

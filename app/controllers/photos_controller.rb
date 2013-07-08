@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_filter :authenticate_user!
   def upload
     @photos = Photo.new
     @collections = current_user.collections
@@ -19,7 +20,7 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.includes(:tags).find(params[:id])
     @tags = @photo.tags
   end
 
@@ -64,4 +65,39 @@ class PhotosController < ApplicationController
     end
     render json: {}
   end 
+
+  def tag_search
+    @tag_name = params[:tag_name]
+    @tag = Tag.where(:title => @tag_name)
+    @photos = []
+    @search_type = "tag name"
+    @search_filter = @tag_name
+    unless @tag.empty?
+      @photos = @tag[0].photos
+    end
+    render :search_result
+  end
+
+  def search
+    params[:tag_name] = params[:search_filter]
+    tag_search
+  end
+
+  def next
+    current_photo = Photo.find(params[:current_photo_id])
+    array = current_photo.photostream.photos.order("id asc")
+    pos = array.index(current_photo)
+    @photo = array[pos.next] || array.first
+    @tags = @photo.tags
+    render :show
+  end 
+
+  def previous
+    current_photo = Photo.find(params[:current_photo_id])
+    array = current_photo.photostream.photos.order("id asc")
+    pos = array.index(current_photo)
+    @photo = array[pos.pred] || array.last
+    @tags = @photo.tags
+    render :show
+  end
 end

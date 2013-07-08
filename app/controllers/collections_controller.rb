@@ -1,4 +1,5 @@
 class CollectionsController < ApplicationController
+  before_filter :authenticate_user!
   def index
     @collections = current_user.collections.includes(:photos)
   end
