@@ -58,19 +58,26 @@
                   <% end %>
               </li>
               <li>
+                <form method="get" action="/search" id="custom-search-form" class="form-search form-horizontal pull-right" STYLE="z-index: 1099">
 
-              </li>
-          <% end %>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-                <form method="get" action="/search" id="custom-search-form" class="form-search form-horizontal pull-right input-append span12">
-                        <input name="search_filter" type="text" class="search-query" placeholder="Search by Tag" id="tag_search_input">
+                        <input name="search_filter" type="text" class="search-query" placeholder="Search by Tag" id="tag_search_input"
+                        STYLE='z-index: 1099'>
                         <button type="submit" class="btn"><i class="icon-search"></i></button>
                 </form>
+               </li>
+
+              <% end %>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
 <!-- Devise notices -->
 <!-- <p class="notice"><%= notice %></p> -->
 <!-- <p class="alert"><%= alert %></p> -->
