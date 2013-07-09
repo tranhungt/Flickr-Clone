@@ -1,5 +1,5 @@
 <h3> Your Friends' Photos <h3>
-<% if @photos.length > 0 %>
+<% unless @photos.nil? %>
 <%= render :partial => './display_photos', :locals => {photos: @photos, size: :medium} %>
 <% else %>
 <h4> You are not following any friends yet <h4>
