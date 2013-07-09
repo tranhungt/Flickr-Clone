@@ -68,12 +68,11 @@ Flicker::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => "flickr-clone-photos",
-      :access_key_id => 'AKIAIFKXAAQCR3UQMMWA',
-      :secret_access_key => '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'
+      :bucket => ENV['AWSBucket'],
+      :access_key_id => ENV['AWSAccessKeyId'],
+      :secret_access_key => ENV['AWSSecretKey']
     },
     :s3_host_name => 's3-us-west-1.amazonaws.com',
 
   }
-
 end
