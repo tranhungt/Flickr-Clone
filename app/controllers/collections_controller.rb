@@ -13,4 +13,7 @@ class CollectionsController < ApplicationController
   	collections = current_user.collections
   	render json: collections
   end
+  def show
+    @collection = Collection.find(params[:id])
+  end
 end

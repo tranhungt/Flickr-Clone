@@ -20,7 +20,13 @@
 <div class="photo_description>">
 	<%= @photo.description %>
 </div>
-
+<h4>Collections</h4>
+<div class="photo_collection">
+  <% @photo.collections.each do |collection| %>
+    <li>
+      <a href="<%= collection_path(collection) %>"><%= collection.title %></a>
+    </li>
+  <% end %>
 <script
 
 
