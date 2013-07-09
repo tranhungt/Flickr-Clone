@@ -38,16 +38,6 @@
                   <%= menu_item "Add Contacts", favorites_url %>
                 <% end %>
               </li>
-
-              <li><%= drop_down "Communities" do %>
-                  <%= menu_item "Groups List", photostreams_path %>
-                  <%= menu_item "Recent Discussions", collections_path %>
-                  <%#= drop_down_divider %>
-                  <%= menu_item "Search Groups", favorites_url %>
-                  <%= menu_item "Create a Group", favorites_url %>
-                <% end %>
-              </li>
-
               <li><%= link_to "Upload", photos_upload_path %></li>
               
               <li> <!-- <img src='#{current_user.avatar.url(:thumb)}'> -->
