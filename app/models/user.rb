@@ -23,13 +23,15 @@ class User < ActiveRecord::Base
   has_many :friend_photos, through: :friends, source: :photos
 
 
-  has_attached_file :avatar, :styles => {:large => "800x800>", :medium => "300x300>", :thumb => "100x100>", :icon => "65x65>" }, :default_url => 'https://s3-us-west-1.amazonaws.com/flickr-clone-photos/photo.jpg'
+  has_attached_file :avatar, :styles => {:large => "800x800>", :medium => "300x300>", :thumb => "100x100>", :icon => "65x65>" }
+  #, :default_url => 'https://s3-us-west-1.amazonaws.com/flickr-clone-photos/myPhoto.jpg'
 
   validate :username, :unique => true
 
   before_create :default_values
 
   def default_values
+    self.avatar = File.open('app/assets/images/default_profile.jpeg')
     self.build_photostream
   end
 
