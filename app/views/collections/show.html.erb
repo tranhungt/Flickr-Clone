@@ -1,0 +1,2 @@
+<h3>Collection <%= @collection.title %></h3>
+<%= render :partial => './display_photos', :locals => {photos: @collection.photos, size: :medium} %>
