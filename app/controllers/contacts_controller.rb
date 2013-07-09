@@ -4,16 +4,12 @@ class ContactsController < ApplicationController
     @users = User.all
     @users.delete(current_user)
   end
-  
-  def create
-
-  end
 
   def list
-
+    @friends = current_user.friends
   end
 
-  def recent_photos
+  def recent_photosa
     @photos = current_user.friend_photos
   end
 end

@@ -1,0 +1,13 @@
+<h3>Your Contacts List</h3>
+<% if @friends.length > 0 %>
+  <% @friends.each do |user| %>
+    <%= image_tag user.avatar.url(:medium) %> 
+    <%= user.username || user.email %>
+    <%= render :partial => './friendship_form', :locals => {user: user} %>
+  <% end %>
+<% else %>
+<h4> You are not following any friends yet <h4>
+  <a href="/contacts/new">Click here to look for friends</a>
+  or
+  <a href="/">Click here to browse public photos</a>
+<% end %>
