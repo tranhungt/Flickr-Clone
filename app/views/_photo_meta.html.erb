@@ -10,7 +10,7 @@
       <%= photo.user.username || photo.user.email %>
     </a>
     <% unless current_user == photo.user %>
-      <%= render :partial => './friendship_form', :locals =>{user: photo.user} %>
+      <%= render :partial => './friendship_form', :locals => {user: photo.user} %>
     <% end %>
   </div>
   
