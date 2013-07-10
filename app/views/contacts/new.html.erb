@@ -1,5 +1,10 @@
+<h2>Find some new friends!</h2>
 <% @users.each do |user| %>
-  <%= image_tag user.avatar.url(:medium) %> 
-  <%= user.username || user.email %>
-  <%= render :partial => './friendship_form', :locals => {user: user} %>
+  <div class="media">
+    <%= image_tag user.avatar.url(:medium) %> 
+    <div class="body">
+      <%= user.username || user.email %>
+      <%= render :partial => './friendship_form', :locals => {user: user} %>
+    </div>
+  </div>
 <% end %>

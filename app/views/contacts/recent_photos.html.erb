@@ -1,8 +1,8 @@
-<h3> Your Friends' Photos <h3>
+<h3> Your Friends' Photos </h3>
 <% unless @photos.nil? %>
 <%= render :partial => './display_photos', :locals => {photos: @photos, size: :medium} %>
 <% else %>
-<h4> You are not following any friends yet <h4>
+<h4> You are not following any friends yet </h4>
   <a href="/contacts/new">Click here to look for friends</a>
   or
   <a href="/">Click here to browse public photos</a>

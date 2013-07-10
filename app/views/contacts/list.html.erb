@@ -1,10 +1,18 @@
 <h3>Your Contacts List</h3>
+<ul class='grid'>
 <% if @friends.length > 0 %>
   <% @friends.each do |user| %>
-    <%= image_tag user.avatar.url(:medium) %> 
-    <%= user.username || user.email %>
-    <%= render :partial => './friendship_form', :locals => {user: user} %>
+  <li>
+    <div class="media">
+      <%= image_tag user.avatar.url(:medium) %> 
+      <div class="body">
+      <%= user.username || user.email %>
+      <%= render :partial => './friendship_form', :locals => {user: user} %>
+      </div>
+    </div>
+  </li>
   <% end %>
+</ul>
 <% else %>
 <h4> You are not following any friends yet <h4>
   <a href="/contacts/new">Click here to look for friends</a>
