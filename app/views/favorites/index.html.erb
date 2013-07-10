@@ -1,3 +1,4 @@
+<% if @photos.length > 0 %>
 <div id='favorites_index'>
   <ul>
   <% @photos.each do |photo| %>
@@ -7,3 +8,9 @@
   <% end %>
   </ul>
 </div>
+<% else %>
+<h3>Your Favorites!</h3>
+You have no favorites yet!
+<br>
+<a href='/'>Click here to browse photos!</a>
+<% end %>

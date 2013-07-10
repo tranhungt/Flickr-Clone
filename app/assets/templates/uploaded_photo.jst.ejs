@@ -1,7 +1,7 @@
 <li id="photo_<%= photo.id %>" data-id="<%= photo.id %>">
 <img src="<%= photo.url %>">
 
-<form action="/photos/<%= photo.id %>" method="delete" data-remote="true" class="delete_photo_form">
-	<input type="submit" value="delete">
+<form action="/photos/<%= photo.id %>" method="delete" data-remote="true" class="delete_photo_form" data-id="<%= photo.id %>">
+	<input type="submit" value="Remove">
 </form>
 </li>

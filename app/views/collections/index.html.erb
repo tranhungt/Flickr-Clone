@@ -1,10 +1,24 @@
+<h3>Your Collections!</h3>
+<% if @photos.length == 0 %>
+  Your Collections are Empty!
+  <br>
+  <a href='/photos/upload'>Click here to upload photos to your collections!</a>
+
+<% elsif @collections.length > 0 %>
 <ul>
 <% @collections.each do |collection| %>
+<% if collection.photos.length > 0 %>
   <li>Collection:
     <%= collection.title %>
     <%= render :partial => './display_photos', 
     :locals => {photos: collection.photos, size: :medium} %>
   </li>
+  <% end %>
 <% end %>
-
 </ul>
+
+<% else %>
+You have no collections yet!
+<br>
+<a href='/photos/upload'>Click here to upload photos a new collection!</a>
+<% end %>

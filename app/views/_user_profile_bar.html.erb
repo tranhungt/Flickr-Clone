@@ -1,9 +1,10 @@
 <% if(user != current_user) %>
-<%= render :partial => './friendship_form', :locals => {user: user} %>
+  <h3><%=user.username || user.email%>'s Photostream!</h3>
+<%#= render :partial => './friendship_form', :locals => {user: user} %>
 
 
 <% end %>
 
 <% if(user == current_user) %>
-
+<h3> Your Photostream!</h3>
 <% end %>

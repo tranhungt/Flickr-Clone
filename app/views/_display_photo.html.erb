@@ -1,8 +1,10 @@
 
 <div id="div<%= photo.id %>">
+  <div class="photo_outer">
   <a href="/photos/<%= photo.id %>">
     <%= image_tag photo.image.url(size) %>
   </a>
+  </div>
 <% unless @ignoreMeta %>
   <%= render partial: './photo_meta', locals: {photo: photo} %>
 <% end %>

@@ -1,3 +1,4 @@
+<div class="sign_in">
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -16,3 +17,23 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+
+<style type="text/css">
+  body{
+    
+    background: url(<%= asset_path 'ferry_tower.jpg' %>) no-repeat center center fixed;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -ms-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+  }
+  .sign_in{
+    background-color :white;
+    opacity: .9;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+</style>

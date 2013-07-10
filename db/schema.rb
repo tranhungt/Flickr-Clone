@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708072153) do
+ActiveRecord::Schema.define(:version => 20130710172109) do
 
   create_table "collections", :force => true do |t|
     t.string   "title"
@@ -118,6 +118,10 @@ ActiveRecord::Schema.define(:version => 20130708072153) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "username"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

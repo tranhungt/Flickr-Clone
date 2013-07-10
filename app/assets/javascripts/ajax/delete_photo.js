@@ -1,6 +1,9 @@
-$(function(){
-  $('#delete_photo').click(function(event){
-    var photo_id = $(this).attr('data-id')
-    console.log(photo.id)
+
+  $(function(){
+    $('.delete_photo_form').on('ajax:success', function(event){
+      event.preventDefault()
+      $(this).closest('li').remove();
+      console.log(this)
+      // $(this).parents('li:first').remove();
+    })
   })
-})

@@ -3,7 +3,6 @@
 
 <script>
 
-
   $('#click_to_add_file').click(function(){
     $('#add_a_file').click();
   })
@@ -29,7 +28,8 @@
 
             $('.delete_photo_form').on('ajax:success', function(event){
               event.preventDefault();
-              // $('.delete_photo_form').parents('li:first').remove();
+              dataid = $(this).attr('data-id')
+              $('#input_'+ dataid).remove();
 
               $(this).parents('li:first').remove();
             })

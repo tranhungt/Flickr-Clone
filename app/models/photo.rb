@@ -8,13 +8,13 @@ class Photo < ActiveRecord::Base
                                  :thumb => "200x200>",
                                  :icon => "30x30>" }
 
-  has_many :photo_taggings
+  has_many :photo_taggings, :dependent => :destroy
   has_many :tags, through: :photo_taggings, source: :tag
   belongs_to :photostream
   has_one :user, through: :photostream
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
   has_many :favorited_users, through: :favorites, source: :user
-  has_many :photo_collections
+  has_many :photo_collections, :dependent => :destroy
   has_many :collections ,through: :photo_collections
 
   accepts_nested_attributes_for :tags, :reject_if => :all_blank

@@ -19,6 +19,7 @@ form {
 .photo_meta{
   background-color: #eee;
   padding: 10px;
+  overflow: hidden;
   .favorite_div{
     float: right
   }
@@ -41,8 +42,11 @@ form {
 }
 
 .photo_descriptions{
-  float: right;
-  width: 25%;
+  background-color :#eee;
+  margin: 10px;
+  padding: 20px;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .photo_display{
@@ -61,4 +65,19 @@ form {
   }
 }
 
+.bar{
+  margin-bottom: 10px;
+}
+
+body{
+}
+
+.photo_outer{
+  width: 450px;
+  height: 300px;
+  img{
+    height: 100%;
+    vertical-align: top;
+  }
+}
 

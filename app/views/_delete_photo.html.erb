@@ -6,13 +6,3 @@
 </form>
 
 
-<script>
-  $(function(){
-    $('.delete_photo_form').on('ajax:success', function(event){
-      event.preventDefault()
-      $('.delete_photo_form').parents('li:first').remove();
-      console.log(this)
-      // $(this).parents('li:first').remove();
-    })
-  })
-</script>

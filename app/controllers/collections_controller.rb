@@ -2,6 +2,7 @@ class CollectionsController < ApplicationController
   before_filter :authenticate_user!
   def index
     @collections = current_user.collections.includes(:photos)
+    @photos = current_user.collection_photos
   end
   def create
     @collection = current_user.collections.build(params[:collection])
