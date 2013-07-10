@@ -1,3 +1,4 @@
+
 <% if photo.favorited_users.include?(current_user) %>
 <div class="favorite_div">
 <%= form_for :favorite, url: favorites_path, :html => {:class => "favorite_form hidden", :id =>"form#{ photo.id}"}, remote: true do |f| %>

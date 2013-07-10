@@ -1,32 +1,40 @@
 <h3> <%= @photo.user.username || @photo.user.email %>'s Photostream!</h3>
-<form action="/photos/previous">
-  <input type="hidden" name="current_photo_id" value="<%= @photo.id %>">
-  <input type="submit" value="Previous">
-</form> 
-<form action="/photos/next">
-  <input type="hidden" name="current_photo_id" value="<%= @photo.id %>">
-  <input type="submit" value="Next">
-</form> 
 
-<%= render :partial => './display_photo', :locals => {photo: @photo, size: :large} %>
+<div class="photo_descriptions">
+  <h4>Tags</h4>
+  <%= render :partial => './display_tags', :locals => {tags: @tags} %>
+  <h4>Title</h4>
+  <div class="photo_title">
+    <%= @photo.title %>
+  </div>
+  <h4>Description</h4>
+  <div class="photo_description>">
+    <%= @photo.description %>
+  </div>
+  <h4>Collections</h4>
+  <div class="photo_collection">
+    <% @photo.collections.each do |collection| %>
+      <li>
+        <a href="<%= collection_path(collection) %>"><%= collection.title %></a>
+      </li>
+    <% end %>
+  </div>
+</div>
 
-<h4>Tags</h4>
-<%= render :partial => './display_tags', :locals => {tags: @tags} %>
-<h4>Title</h4>
-<div class="photo_title">
-	<%= @photo.title %>
+
+
+<div class="photo_display">
+  <form action="/photos/previous" id="button_previous">
+    <input type="hidden" name="current_photo_id" value="<%= @photo.id %>">
+    <input type="submit" value="Previous">
+  </form> 
+  <form action="/photos/next" id="button_next">
+    <input type="hidden" name="current_photo_id" value="<%= @photo.id %>">
+    <input type="submit" value="Next">
+  </form> 
+
+  <%= render :partial => './display_photo', :locals => {photo: @photo, size: :large} %>
 </div>
-<h4>Description</h4>
-<div class="photo_description>">
-	<%= @photo.description %>
-</div>
-<h4>Collections</h4>
-<div class="photo_collection">
-  <% @photo.collections.each do |collection| %>
-    <li>
-      <a href="<%= collection_path(collection) %>"><%= collection.title %></a>
-    </li>
-  <% end %>
-<script
+
 
 

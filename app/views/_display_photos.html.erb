@@ -1,5 +1,4 @@
-
-<ul>
+<ul class='grid photostream'>
 <% photos.each do |photo| %>
   <li class="photos">
     <%= render partial: './display_photo', locals: {photo: photo, size: size} %>

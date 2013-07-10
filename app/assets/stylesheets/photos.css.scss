@@ -1,3 +1,64 @@
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+form {
+  margin: 0;
+}
+.sidebar{
+  float: left;
+  width: 30%;
+}
+
+.grid{
+  list-style: none;
+  li{
+    display: inline-block;
+  }
+}
+
+.photo_meta{
+  background-color: #eee;
+  padding: 10px;
+  .favorite_div{
+    float: right
+  }
+}
+
+.myMedia{
+  img {
+    float: left;
+    margin-right: 5px;
+  }
+  .body{
+    overflow: hidden;
+  }
+}
+
+.photostream{
+  & > li{
+    margin-bottom: 10px;
+  }
+}
+
+.photo_descriptions{
+  float: right;
+  width: 25%;
+}
+
+.photo_display{
+  display: inline-block;
+  float: left;
+  position: relative;
+  #button_previous{
+    position: absolute;
+    left: 0;
+    bottom: 60%;
+  }
+  #button_next{
+    position: absolute;
+    right: 0;
+    bottom: 60%;
+  }
+}
+
+

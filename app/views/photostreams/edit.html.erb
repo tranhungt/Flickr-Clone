@@ -1,8 +1,9 @@
+<ul class="list_edit_photo grid">
 <% @photos.each do |photo| %>
-  <ul class="list_edit_photo">
+
     <li>
 	    <%= render :partial => './display_photo', :locals => {photo: photo, size: :thumb, :@ignoreMeta => true} %>
 	    <%= render :partial => './delete_photo', :locals => {photo: photo} %>
-	</li>
-   </ul> 
+	 </li> 
 <% end %>
+</ul>

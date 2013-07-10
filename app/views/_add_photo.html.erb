@@ -1,15 +1,5 @@
-<div id="add_photo_div">
-</div>
-<form id="add_a_photo_form" 
-      action="/photos"
-      enctype="multipart/form-data" 
-      method="POST">
-  <input name="authenticity_token" 
-          type="hidden"
-          value="$('meta[name="csrf-token"]').attr('content')" />
-  <input type='file' name="photo[image]" id="add_a_file" STYLE="opacity: 0">
-</form>
-<a href='#' id="click_to_add_file">Add A Photo</a>
+<ul id="add_photo_div" class="grid">
+</ul>
 
 <script>
 
