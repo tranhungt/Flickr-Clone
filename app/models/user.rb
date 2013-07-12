@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
 
 
   has_attached_file :avatar, :styles => {:large => "800x800>", :medium => "300x300>", :thumb => "100x100>", :icon => "65x65>" }
-  has_attached_file :banner, :styles => {:resize => "800x800"}
   #, :default_url => 'https://s3-us-west-1.amazonaws.com/flickr-clone-photos/myPhoto.jpg'
 
   validate :username, :unique => true
@@ -33,7 +32,6 @@ class User < ActiveRecord::Base
 
   def default_values
     self.avatar = File.open('app/assets/images/default_profile.jpeg')
-    self.banner = File.open('app/assets/images/banner_photo.jpg') 
     self.build_photostream
   end
 
