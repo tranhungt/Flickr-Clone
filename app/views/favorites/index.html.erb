@@ -1,6 +1,6 @@
 <% if @photos.length > 0 %>
 <div id='favorites_index'>
-  <ul>
+  <ul class='grid'>
   <% @photos.each do |photo| %>
   <li>
    <%= render partial: './display_photo', locals: {photo: photo, size: :medium} %>

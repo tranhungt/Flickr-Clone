@@ -8,6 +8,7 @@
 <ul>
 <% @collections.each do |collection| %>
 <% if collection.photos.length > 0 %>
+
   <li>Collection:
     <%= collection.title %>
     <%= render :partial => './display_photos', 
