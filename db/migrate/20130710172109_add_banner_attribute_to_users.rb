@@ -1,5 +1,5 @@
 class AddBannerAttributeToUsers < ActiveRecord::Migration
   def change
-    add_attachment :users, :banner
+    #add_attachment :users, :banner
   end
 end

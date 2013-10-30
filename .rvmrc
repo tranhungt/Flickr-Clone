@@ -1,0 +1,5 @@
+rvm use 2.0.0@flickrclone --create
+
+if [ -f ".env" ]; then
+  export $(sed '/^#/d' .env)
+fi
