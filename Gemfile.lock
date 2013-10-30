@@ -31,9 +31,9 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
-    aws-sdk (1.11.3)
+    aws-sdk (1.23.0)
       json (~> 1.4)
-      nokogiri (< 1.6.0)
+      nokogiri (>= 1.4.4, < 1.6.0)
       uuidtools (~> 2.1)
     backbone-on-rails (1.0.0.0)
       eco
@@ -90,7 +90,7 @@ GEM
     jquery-ui-rails (4.0.3)
       jquery-rails
       railties (>= 3.1.0)
-    json (1.8.0)
+    json (1.8.1)
     less (2.3.2)
       commonjs (~> 0.2.6)
     less-rails (2.3.3)
