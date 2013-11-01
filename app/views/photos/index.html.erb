@@ -1,15 +1,6 @@
 <%#= image_tag @user.avatar.url %>
 <%#= image_tag @user.avatar.url(:medium) %>
 <%#= image_tag @user.avatar.url(:thumb) %>
-<%= link_to "Upload Photos", photos_upload_path %>
-<ul>
-<%= paginate @photos %>
-<% @photos.each do |photo| %>
-  <li class="photos">
-
-    <a href="/photos/<%= photo.id %>">
-      <%= image_tag photo.image.url(:medium) %>
-    </a>
-  </li>
-  <% end %>
-</ul>
+<h2>Recently Uploaded Photos</h2>
+<%= paginate @photos, :params => {:controller => "photos", :action => "index"} %>
+<%= render :partial => './display_photos', :locals => {photos: @photos, size: :medium} %>

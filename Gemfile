@@ -31,6 +31,10 @@ gem 'ejs'
 gem 'jquery-ui-rails'
 gem 'jquery-fileupload-rails'
 gem 'figaro'
+gem 'kaminari'
+gem 'guard', '~> 2.1.1'
+gem 'coderay', '~> 1.0.5'
+gem 'awesome_print'
 
 #bootstraps
 gem 'therubyracer'
@@ -41,7 +45,20 @@ gem 'twitter-bootstrap-rails'
 gem 'annotate'
 gem 'better_errors'
 gem 'binding_of_caller'
-gem 'kaminari'
+
+
+group :test do
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'faker'
+  gem 'launchy'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

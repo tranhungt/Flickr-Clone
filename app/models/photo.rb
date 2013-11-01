@@ -21,6 +21,7 @@ class Photo < ActiveRecord::Base
   accepts_nested_attributes_for :photo_collections, :reject_if => :all_blank
 
   validates :image, :presence => true
+  validates_associated :user
 
   def isCurrentFavorite?
     current_user.favorite_photos.include?(self)
