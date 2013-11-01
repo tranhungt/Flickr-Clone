@@ -18,4 +18,9 @@ describe "LoginUsers" do
     click_button "Sign in"
     page.should have_content("Recently Uploaded Photos")
   end
+
+  it "should link to sign up page" do
+    click_link "Sign up"
+    page.should have_content("Sign up")
+  end
 end

@@ -19,3 +19,9 @@
 
 .env
 .DS_Store
+
+# Ignore photo images
+public/system/photos
+
+# Ignore user avatars
+public/system/users
