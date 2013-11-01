@@ -272,6 +272,7 @@ DEPENDENCIES
   mocha
   paperclip
   pg
+  rack-test
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)

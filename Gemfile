@@ -52,6 +52,7 @@ group :test do
   gem 'guard-rspec'
   gem 'faker'
   gem 'launchy'
+  gem 'rack-test'
 end
 
 group :development, :test do

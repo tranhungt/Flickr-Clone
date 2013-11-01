@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PhotosController, "creating a new photo" do
+describe PhotosController do
 
   before(:each) do
     user = FactoryGirl.create(:user)
@@ -36,13 +36,20 @@ describe PhotosController, "creating a new photo" do
 
   describe "POST #create" do
     context "with valid attributes" do
-      it "saves the new photo into the database"
+      it "saves the new photo into the database" do
+        expect{
+          post :create, photo: FactoryGirl.attributes_for(:photo)
+        }.to change(Photo, :count).by(1)
+      end
       it "renders json"
     end
 
     context "with invalid attributes" do
-      it "does not save photo to database"
-      it "re-renders the :upload"
+      it "does not save photo to database" do
+        expect{
+          post :create, photo: {}
+        }.to raise_exception(ActiveRecord::RecordInvalid) # change(Photo, :count)
+      end
     end 
   end
 
