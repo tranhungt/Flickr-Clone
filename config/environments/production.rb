@@ -67,12 +67,11 @@ Flicker::Application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
+    :bucket => ENV['AWSBucket'],
     :s3_credentials => {
-      :bucket => ENV['AWSBucket'],
       :access_key_id => ENV['AWSAccessKeyId'],
       :secret_access_key => ENV['AWSSecretKey']
     },
-    :s3_host_name => 's3-us-west-1.amazonaws.com',
-
+    :s3_host_name => ENV['AWSHostname'],
   }
 end

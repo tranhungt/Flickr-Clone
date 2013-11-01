@@ -32,11 +32,17 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+<<<<<<< HEAD
     atomic (1.1.14)
     awesome_print (1.2.0)
     aws-sdk (1.11.1)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
+=======
+    aws-sdk (1.23.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4, < 1.6.0)
+>>>>>>> master
       uuidtools (~> 2.1)
     backbone-on-rails (1.1.0.0)
       eco
@@ -120,6 +126,7 @@ GEM
     jquery-ui-rails (4.1.0)
       railties (>= 3.1.0)
     json (1.8.1)
+<<<<<<< HEAD
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -128,6 +135,11 @@ GEM
     less (2.4.0)
       commonjs (~> 0.2.7)
     less-rails (2.4.2)
+=======
+    less (2.3.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
+>>>>>>> master
       actionpack (>= 3.1)
       less (~> 2.4.0)
     libv8 (3.16.14.3)
@@ -139,12 +151,18 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+<<<<<<< HEAD
     method_source (0.8.2)
     mime-types (1.25)
     mini_portile (0.5.2)
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+=======
+    mime-types (1.25)
+    multi_json (1.8.2)
+    nokogiri (1.5.10)
+>>>>>>> master
     orm_adapter (0.4.0)
     paperclip (3.5.2)
       activemodel (>= 3.0.0)
@@ -231,7 +249,11 @@ GEM
       rails (>= 3.1)
       railties (>= 3.1)
     tzinfo (0.3.38)
+<<<<<<< HEAD
     uglifier (2.3.0)
+=======
+    uglifier (2.1.1)
+>>>>>>> master
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     uuidtools (2.1.4)
