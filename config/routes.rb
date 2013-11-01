@@ -1,6 +1,6 @@
 Flicker::Application.routes.draw do
   devise_for :users
-  root :to => "Root#root" 
+  root :to => "photos#index" 
   resource :account
   get '/photos/upload', to: 'Photos#upload' 
   get '/search', to: "Photos#search"

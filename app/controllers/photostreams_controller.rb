@@ -1,6 +1,7 @@
 class PhotostreamsController < ApplicationController
   def index
-    @photos = Photo.all #.where("favorites.user_id => ?",current_user.id)
+    # @photos = Photo.all #.where("favorites.user_id => ?",current_user.id)
+    @photos = Photo.page(params[:page]).per(2)
   end
   def show
     photostream = Photostream.find(params[:id])

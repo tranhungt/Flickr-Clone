@@ -1,10 +1,18 @@
 <h2>Find some new friends!</h2>
-<% @users.each do |user| %>
-  <div class="media">
-    <%= image_tag user.avatar.url(:medium) %> 
-    <div class="body">
-      <%= user.username || user.email %>
-      <%= render :partial => './friendship_form', :locals => {user: user} %>
+<form action="/contacts/new" method="GET">
+<label for="user_search">Search for your friend</label>
+<input id="user_search" type="text" name="q"/>
+</form>
+<% if @users.empty? %>
+  <h4>Could not find user</h4>
+<% else %>
+  <% @users.each do |user| %>
+    <div class="media">
+      <%= image_tag user.avatar.url(:medium) %> 
+      <div class="body">
+        <%= user.username || user.email %>
+        <%= render :partial => './friendship_form', :locals => {user: user} %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

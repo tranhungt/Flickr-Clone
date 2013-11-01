@@ -1,3 +1,15 @@
-
-
+<%#= paginate @photos %>
 <%= render :partial => './display_photos', :locals => {photos: @photos, size: :medium} %>
+
+<%= link_to "Upload Photos", photos_upload_path %>
+<ul>
+<%#= paginate @photos %>
+<% @photos.each do |photo| %>
+  <li class="photos">
+
+    <a href="/photos/<%= photo.id %>">
+      <%= image_tag photo.image.url(:medium) %>
+    </a>
+  </li>
+  <% end %>
+</ul>
