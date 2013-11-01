@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
-  def upload
+  def new
     @photos = Photo.new
     @collections = current_user.collections
   end
@@ -11,7 +11,7 @@ class PhotosController < ApplicationController
     if photostream.save!
       render json: @photo
     else
-      render :upload
+      render :new
     end
   end
 

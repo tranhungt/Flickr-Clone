@@ -14,7 +14,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: flicker_development
+  database: flicker_test
   host: localhost
   pool: 5
   timeout: 5000
