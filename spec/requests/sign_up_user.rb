@@ -38,6 +38,8 @@ describe "SignUpUsers" do
       page.should have_content("Password confirmation")
     end
   end
+
+  
   it "signs up with valid credentials" do
     email = "test@example.com"
     password = "password"
